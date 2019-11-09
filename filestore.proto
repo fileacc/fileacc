@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+import "create_file.proto";
+import "get_file.proto";
+import "get_file_by_name.proto";
+import "update_file.proto";
+import "delete_file.proto";
+import "list_path_elements.proto";
+
+package filestore;
+
+// Filestore implements a viable gRPC-based file storage access solution.
+service Filestore {
+	// CreateFile creates a single file.
+	rpc CreateFile(CreateFileRequest) returns (CreateFileResponse);
+
+	// CreateFiles creates multiple files.
+	rpc CreateFiles(stream CreateFileRequest) returns (stream CreateFileResponse);
+
+	// GetFile gets a single file.
+	rpc GetFile(GetFileRequest) returns (GetFileResponse);
+
+	// GetFiles gets multiple files.
+	rpc GetFiles(stream GetFileRequest) returns (stream GetFileResponse);
+
+	// GetFileByName gets a single file by its name.
+	rpc GetFileByName(GetFileByNameRequest) returns (GetFileByNameResponse);
+
+	// GetFilesByNames gets multiple files by their names.
+	rpc GetFilesByNames(stream GetFileByNameRequest) returns (stream GetFileByNameResponse);
+
+	// UpdateFile updates a single file.
+	rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse);
+
+	// UpdateFiles updates multiple files.
+	rpc UpdateFiles(stream UpdateFileRequest) returns (stream UpdateFileResponse);
+
+	// DeleteFile deletes a single file.
+	rpc DeleteFile(DeleteFileRequest) returns (google.protobuf.Empty);
+
+	// DeleteFiles deletes multiple files.
+	rpc DeleteFiles(stream DeleteFileRequest) returns (google.protobuf.Empty);
+
+	// ListPathElements lists path elements.
+	rpc ListPathElements(ListPathElementsRequest) returns (stream ListPathElementsResponse);
+}

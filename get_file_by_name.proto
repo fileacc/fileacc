@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+import "file.proto";
+
+package filestore;
+
+// GetFileByNameRequest is the request to get a single file by its name.
+message GetFileByNameRequest {
+	// name is the name of the file of the current request to be got.
+	//
+	// Notes:
+	//   * Unique
+	//   * Absolute
+	//   * Clean
+	//   * Case-sensitive
+	//   * UTF-8 encoded
+	//   * Path separator: /
+	//   * Length range: [1, 4096]
+	//   * Path element length range: [1, 255]
+	//   * Start with a path separator
+	//   * End without a path separator
+	string name = 1;
+}
+
+// GetFileByNameResponse is the response to get a single file by its name.
+message GetFileByNameResponse {
+	// file is the file of the current response.
+	//
+	// Notes:
+	//   * Never nil
+	File file = 1;
+}

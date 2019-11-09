@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+import "file.proto";
+
+package filestore;
+
+// UpdateFileRequest is the request to update a single file.
+message UpdateFileRequest {
+	// id is the identifier of the file of the current request to be updated.
+	//
+	// Notes:
+	//   * Length: 16
+	bytes id = 1;
+
+	// name is the new name of the file of the current request to be updated.
+	//
+	// Notes:
+	//   * Unique
+	//   * Absolute
+	//   * Clean
+	//   * Case-sensitive
+	//   * UTF-8 encoded
+	//   * Path separator: /
+	//   * Length range: [1, 4096]
+	//   * Path element length range: [1, 255]
+	//   * Start with a path separator
+	//   * End without a path separator
+	google.protobuf.StringValue name = 2;
+
+	// mime_type is the new MIME type of the file of the current request to be
+	// updated.
+	//
+	// Notes:
+	//   * Lowercase
+	//   * Length range: [1, 255]
+	google.protobuf.StringValue mime_type = 3;
+
+	// lifetime is the new lifetime of the file of the current request to be
+	// updated.
+	//
+	// Notes:
+	//   * Unit: second
+	//   * Range: [1, 9223372036854775807]
+	google.protobuf.Int64Value lifetime = 4;
+
+	// public is the new indicator that indicates whether the file of the current
+	// request to be updated is public.
+	google.protobuf.BoolValue public = 5;
+}
+
+// UpdateFileResponse is the response to update a single file.
+message UpdateFileResponse {
+	// file is the file of the current response.
+	//
+	// Notes:
+	//   * Never nil
+	File file = 1;
+}

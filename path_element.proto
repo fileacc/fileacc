@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "file.proto";
+
+package filestore;
+
+// PathElement is the path element.
+message PathElement {
+	// Type is the type of the current path element.
+	enum Type {
+		// DIRECTORY means the current path element is a directory.
+		DIRECTORY = 0;
+
+		// FILE means the current path element is a file.
+		FILE = 1;
+	}
+
+	// name is the name of the current path element.
+	//
+	// Notes:
+	//   * Absolute
+	//   * Clean
+	//   * Case-sensitive
+	//   * UTF-8 encoded
+	//   * Path separator: /
+	//   * Length range: [1, 4096]
+	//   * Path element length range: [1, 255]
+	//   * Start with a path separator
+	string name = 1;
+
+	// type is the type of the current path element.
+	Type type = 2;
+
+	// file is the file of the current path element.
+	//
+	// Notes:
+	//   * It represents the latest file in the current directory (including its
+	//     subdirectories) when the type of the current path element is DIRECTORY
+	//   * It represents the file when the type of the current path element is
+	//     FILE
+	File file = 3;
+}

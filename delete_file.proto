@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package filestore;
+
+// DeleteFileRequest is the request to delete a single file.
+message DeleteFileRequest {
+	// id is the identifier of the file of the current request to be deleted.
+	//
+	// Notes:
+	//   * Length: 16
+	bytes id = 1;
+}

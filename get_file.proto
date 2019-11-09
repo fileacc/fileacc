@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+import "file.proto";
+
+package filestore;
+
+// GetFileRequest is the request to get a single file.
+message GetFileRequest {
+	// id is the identifier of the file of the current request to be got.
+	//
+	// Notes:
+	//   * Length: 16
+	bytes id = 1;
+
+	// updated_at is the update time held by the frontend of the file of the
+	// current request to be got.
+	//
+	// Notes:
+	//   * Nil means not comparing with the backend
+	//   * Non-nil means getting the file that is later than this update time
+	google.protobuf.Timestamp updated_at = 2;
+}
+
+// GetFileResponse is the response to get a single file.
+message GetFileResponse {
+	// file is the file of the current response.
+	//
+	// Non-nil condition (A):
+	//   A: The update time held by the backend of the file is later than the
+	//     update time held by the frontend of the file
+	File file = 1;
+}
