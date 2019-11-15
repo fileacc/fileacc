@@ -80,6 +80,8 @@ message File {
 	//     current file has been uploaded
 	//   * Can only be requested via the PATCH method when the data of the current
 	//     file needs to be uploaded
+	//   * Must use "application/octet-stream" as the value of the Content-Type
+	//     header for each PATCH request
 	//   * A PATCH request is used to continue uploading (appending) data for the
 	//     current file, please use the actual size of the current file to
 	//     determine the upload offset
@@ -87,7 +89,7 @@ message File {
 	//     be equal to the size of the current file, the backend will verify the
 	//     uploaded data for the current file, an unpassed verification will cause
 	//     the current file to be deleted immediately
-	//   * Up to 1099511627776 (1 TB) of bytes per PATCH request
+	//   * Up to 4294967296 (4 GB) of bytes per PATCH request
 	//   * Expires in 3600 seconds when the current file is not public or the data
 	//     of the current file needs to be uploaded
 	string url = 11;
