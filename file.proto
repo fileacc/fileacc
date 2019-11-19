@@ -83,8 +83,9 @@ message File {
 	//   * Must use "application/octet-stream" as the value of the Content-Type
 	//     header for each PATCH request
 	//   * A PATCH request is used to continue uploading (appending) data for the
-	//     current file, please use the actual size of the current file to
-	//     determine the upload offset
+	//     current file
+	//   * Always use the actual size of the current file to determine the upload
+	//     offset before starting a PATCH request, even on the very first one
 	//   * Once a PATCH request increases the actual size of the current file to
 	//     be equal to the size of the current file, the backend will verify the
 	//     uploaded data for the current file, an unpassed verification will cause
