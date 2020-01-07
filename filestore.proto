@@ -8,6 +8,7 @@ import "get_file_by_name.proto";
 import "update_file.proto";
 import "delete_file.proto";
 import "list_path_elements.proto";
+import "count_path_elements.proto";
 
 package filestore;
 
@@ -45,4 +46,7 @@ service Filestore {
 
 	// ListPathElements lists path elements.
 	rpc ListPathElements(ListPathElementsRequest) returns (stream ListPathElementsResponse);
+
+	// CountPathElements counts path elements.
+	rpc CountPathElements(CountPathElementsRequest) returns (stream CountPathElementsResponse);
 }

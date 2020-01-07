@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package filestore;
+
+// CountPathElementsRequest is the request to count path elements.
+message CountPathElementsRequest {
+	// CountStyle is the counting style.
+	enum CountStyle {
+		// ALL means that all types of the path elements are counted.
+		ALL = 0;
+
+		// ONLY_DIRECTORIES means that only the path elements whoses types are
+		// directories are counted.
+		ONLY_DIRECTORIES = 1;
+
+		// ONLY_FILES means that only the path elements whoses types are files are
+		// counted.
+		ONLY_FILES = 2;
+	}
+
+	// name_prefix is the prefix of the names of the path elements of the current
+	// request to be counted.
+	//
+	// Notes:
+	//   * Absolute
+	//   * Clean
+	//   * Case-sensitive
+	//   * UTF-8 encoded
+	//   * Path separator: /
+	//   * Length range: [1, 4096]
+	//   * Path element length range: [1, 255]
+	//   * Start with a path separator
+	//
+	// Default value: "/"
+	google.protobuf.StringValue name_prefix = 1;
+
+	// recursive indicates whether to count subdirectories recursively.
+	bool recursive = 2;
+
+	// count_style is the counting style.
+	CountStyle count_style = 3;
+}
+
+// CountPathElementsResponse is the response to count path elements.
+message CountPathElementsResponse {
+	// count is the number of the path elements of the current response.
+	int64 count = 1;
+}
