@@ -52,8 +52,12 @@ message File {
 	// Notes:
 	//   * Unit: byte
 	//   * Range: [0, 1099511627776]
+	//   * It increases as the data of the current file is uploaded until it is
+	//     equal to the size of the current file
 	//   * It is equal to the size of the current file when the data of the
 	//     current file has been uploaded
+	//   * It may already be equal to the size of the current file, even if the
+	//     current file was just created
 	int64 actual_size = 7;
 
 	// checksum is the checksum of the current file.
@@ -85,7 +89,7 @@ message File {
 	//   * A PATCH request is used to continue uploading (appending) data for the
 	//     current file
 	//   * Always use the actual size of the current file to determine the upload
-	//     offset before starting a PATCH request, even on the very first one
+	//     offset before starting a PATCH request, even it is the very first one
 	//   * Once a PATCH request increases the actual size of the current file to
 	//     be equal to the size of the current file, the backend will verify the
 	//     uploaded data for the current file, an unpassed verification will cause
