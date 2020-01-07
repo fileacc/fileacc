@@ -54,6 +54,12 @@ message ListPathElementsRequest {
 	// Notes:
 	//   * Range: [0, 9223372036854775807]
 	int64 offset = 5;
+
+	// limit is the maximum number of the results of the current request.
+	//
+	// Notes:
+	//   * Range: [1, 1000]
+	int64 limit = 6;
 }
 
 // ListPathElementsResponse is the response to list path elements.
