@@ -45,8 +45,14 @@ service Filestore {
 	rpc DeleteFiles(stream DeleteFileRequest) returns (google.protobuf.Empty);
 
 	// ListPathElements lists path elements.
+	//
+	// Notes:
+	//   * Only files with all data uploaded will be listed
 	rpc ListPathElements(ListPathElementsRequest) returns (stream ListPathElementsResponse);
 
 	// CountPathElements counts path elements.
+	//
+	// Notes:
+	//   * Only files with all data uploaded will be counted
 	rpc CountPathElements(CountPathElementsRequest) returns (stream CountPathElementsResponse);
 }

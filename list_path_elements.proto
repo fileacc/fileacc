@@ -8,7 +8,7 @@ package filestore;
 
 // ListPathElementsRequest is the request to list path elements.
 message ListPathElementsRequest {
-	// OrderBy is the ordering basis for the results of the current request.
+	// OrderBy is the ordering basis for the path elements to be listed.
 	enum OrderBy {
 		// PATH_ELEMENT_NAME means ordering according to the name of the path
 		// element.
@@ -23,8 +23,7 @@ message ListPathElementsRequest {
 		PATH_ELEMENT_FILE_UPDATED_AT = 2;
 	}
 
-	// name_prefix is the prefix of the names of the path elements of the current
-	// request to be listed.
+	// name_prefix is the prefix of the names of the path elements to be listed.
 	//
 	// Notes:
 	//   * Absolute
@@ -42,20 +41,20 @@ message ListPathElementsRequest {
 	// recursive indicates whether to list subdirectories recursively.
 	bool recursive = 2;
 
-	// order_by is the ordering basis for the results of the current request.
+	// order_by is the ordering basis for the path elements to be listed.
 	OrderBy order_by = 3;
 
-	// reverse indicates whether to reverse the results of the current request.
+	// reverse indicates whether to reverse the path elements to be listed.
 	bool reverse = 4;
 
-	// offset is the number of the results of the current request that need to be
+	// offset is the number of the path elements to be listed that need to be
 	// offset.
 	//
 	// Notes:
 	//   * Range: [0, 9223372036854775807]
 	int64 offset = 5;
 
-	// limit is the maximum number of the results of the current request.
+	// limit is the maximum number of the path elements to be listed.
 	//
 	// Notes:
 	//   * Range: [1, 1000]
@@ -64,7 +63,7 @@ message ListPathElementsRequest {
 
 // ListPathElementsResponse is the response to list path elements.
 message ListPathElementsResponse {
-	// path_element is the path element of the current response.
+	// path_element is the path element that was just listed.
 	//
 	// Notes:
 	//   * Never nil

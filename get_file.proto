@@ -8,27 +8,27 @@ package filestore;
 
 // GetFileRequest is the request to get a single file.
 message GetFileRequest {
-	// id is the identifier of the file of the current request to be got.
+	// id is the identifier of the file to be got.
 	//
 	// Notes:
+	//   * Unique
 	//   * Length: 16
 	bytes id = 1;
 
-	// updated_at is the update time held by the frontend of the file of the
-	// current request to be got.
+	// updated_at is the update time of the file to be got held by the frontend.
 	//
 	// Notes:
 	//   * Nil means not comparing with the backend
-	//   * Non-nil means getting the file that is later than this update time
+	//   * Non-nil means only getting the file that is later than this update time
 	google.protobuf.Timestamp updated_at = 2;
 }
 
 // GetFileResponse is the response to get a single file.
 message GetFileResponse {
-	// file is the file of the current response.
+	// file is the file that was just got.
 	//
 	// Non-nil condition (A):
-	//   A: The update time held by the backend of the file is later than the
-	//     update time held by the frontend of the file
+	//   A: The update time held by the backend is later than that held by the
+	//      frontend
 	File file = 1;
 }

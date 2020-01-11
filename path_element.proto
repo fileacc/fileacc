@@ -6,16 +6,16 @@ package filestore;
 
 // PathElement is the path element.
 message PathElement {
-	// Type is the type of the current path element.
+	// Type is the type.
 	enum Type {
-		// DIRECTORY means the current path element is a directory.
+		// DIRECTORY means a directory path element.
 		DIRECTORY = 0;
 
-		// FILE means the current path element is a file.
+		// FILE means a file path element.
 		FILE = 1;
 	}
 
-	// name is the name of the current path element.
+	// name is the name.
 	//
 	// Notes:
 	//   * Absolute
@@ -28,15 +28,14 @@ message PathElement {
 	//   * Start with a path separator
 	string name = 1;
 
-	// type is the type of the current path element.
+	// type is the type.
 	Type type = 2;
 
-	// file is the file of the current path element.
+	// file is the file.
 	//
 	// Notes:
-	//   * It represents the latest file in the current directory (including its
-	//     subdirectories) when the type of the current path element is DIRECTORY
-	//   * It represents the file when the type of the current path element is
-	//     FILE
+	//   * It represents the latest file in the directory (including its
+	//     subdirectories) when the `type` is DIRECTORY
+	//   * It represents the file when the `type` is FILE
 	File file = 3;
 }

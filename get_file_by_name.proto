@@ -6,7 +6,7 @@ package filestore;
 
 // GetFileByNameRequest is the request to get a single file by its name.
 message GetFileByNameRequest {
-	// name is the name of the file of the current request to be got.
+	// name is the name of the file to be got.
 	//
 	// Notes:
 	//   * Unique
@@ -18,13 +18,13 @@ message GetFileByNameRequest {
 	//   * Length range: [1, 4096]
 	//   * Path element length range: [1, 255]
 	//   * Start with a path separator
-	//   * End without a path separator
+	//   * End without any path separator
 	string name = 1;
 }
 
 // GetFileByNameResponse is the response to get a single file by its name.
 message GetFileByNameResponse {
-	// file is the file of the current response.
+	// file is the file that was just got.
 	//
 	// Notes:
 	//   * Never nil
