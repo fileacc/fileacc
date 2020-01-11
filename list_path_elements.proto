@@ -4,7 +4,7 @@ import "path_element.proto";
 
 import "google/protobuf/wrappers.proto";
 
-package filestore;
+package fileacc;
 
 // ListPathElementsRequest is the request to list path elements.
 message ListPathElementsRequest {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "file.proto";
 
-package filestore;
+package fileacc;
 
 // GetFileByNameRequest is the request to get a single file by its name.
 message GetFileByNameRequest {

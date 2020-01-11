@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-package filestore;
+package fileacc;
 
 // File is the file.
 message File {

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/wrappers.proto";
 
-package filestore;
+package fileacc;
 
 // CountPathElementsRequest is the request to count path elements.
 message CountPathElementsRequest {

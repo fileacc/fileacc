@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "file.proto";
 
-package filestore;
+package fileacc;
 
 // PathElement is the path element.
 message PathElement {

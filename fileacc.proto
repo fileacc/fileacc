@@ -10,10 +10,10 @@ import "delete_file.proto";
 import "list_path_elements.proto";
 import "count_path_elements.proto";
 
-package filestore;
+package fileacc;
 
-// Filestore implements a viable gRPC-based file storage access solution.
-service Filestore {
+// Fileacc implements a viable gRPC-based file access solution.
+service Fileacc {
 	// CreateFile creates a single file.
 	rpc CreateFile(CreateFileRequest) returns (CreateFileResponse);
 

@@ -4,7 +4,7 @@ import "google/protobuf/wrappers.proto";
 
 import "file.proto";
 
-package filestore;
+package fileacc;
 
 // CreateFileRequest is the request to create a single file.
 message CreateFileRequest {

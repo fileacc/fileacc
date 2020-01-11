@@ -4,7 +4,7 @@ import "google/protobuf/wrappers.proto";
 
 import "file.proto";
 
-package filestore;
+package fileacc;
 
 // UpdateFileRequest is the request to update a single file.
 message UpdateFileRequest {

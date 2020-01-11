@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package filestore;
+package fileacc;
 
 // DeleteFileRequest is the request to delete a single file.
 message DeleteFileRequest {
