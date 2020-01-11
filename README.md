@@ -8,13 +8,13 @@ decided to use a modern way to design a new solution.
 ## Community
 
 If you want to discuss Fileacc, or ask questions about it, simply post questions
-or ideas [here](https://github.com/aofei/fileacc/issues).
+or ideas [here](https://github.com/fileacc/fileacc/issues).
 
 ## Contributing
 
 If you want to help build Fileacc, simply follow
-[this](https://github.com/aofei/fileacc/wiki/Contributing) to send pull
-requests [here](https://github.com/aofei/fileacc/pulls).
+[this](https://github.com/fileacc/fileacc/wiki/Contributing) to send pull
+requests [here](https://github.com/fileacc/fileacc/pulls).
 
 ## License
 
