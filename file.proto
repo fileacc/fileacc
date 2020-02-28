@@ -89,11 +89,9 @@ message File {
 	//   * Always use the `unuploaded_size` to determine the upload offset before
 	//     starting a PATCH request, even it is the very first one
 	//   * Once a PATCH request decreases the `unuploaded_size` to be equal to
-	//     zero, the backend will verify all uploaded data. An unpassed
-	//     verification will cause the file to be deleted immediately without any
-	//     notification. If necessary, you can reget the file or request this URL
-	//     via GET or HEAD method. If you are told that the file does not exist,
-	//     then the verification has definitely unpassed
+	//     zero, the backend will verify all uploaded data (compare with the
+	//     `checksum`). An unpassed verification will cause the file to be deleted
+	//     immediately
 	//   * Up to 4294967296 (4 GB) of bytes per PATCH request
 	//   * Expires in 3600 seconds (1 hour) when the `unuploaded_size` is greater
 	//     than zero or the `public` is false
