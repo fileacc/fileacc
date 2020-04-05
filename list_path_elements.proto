@@ -8,6 +8,18 @@ package fileacc;
 
 // ListPathElementsRequest is the request to list path elements.
 message ListPathElementsRequest {
+	// TypeFilter is the type filter for the path elements to be listed.
+	enum TypeFilter {
+		// ALL means that all types of the path elements will be listed.
+		ALL = 0;
+
+		// DIRECTORY means that only the directory path elements will be listed.
+		DIRECTORY = 1;
+
+		// FILE means that only the file path elements will be listed.
+		FILE = 2;
+	}
+
 	// OrderBy is the ordering basis for the path elements to be listed.
 	enum OrderBy {
 		// PATH_ELEMENT_NAME means ordering according to the name of the path
@@ -38,27 +50,31 @@ message ListPathElementsRequest {
 	// Default value: "/"
 	google.protobuf.StringValue name_prefix = 1;
 
-	// recursive indicates whether to list subdirectories recursively.
+	// recursive indicates whether to list the path elements in subdirectories
+	// recursively.
 	bool recursive = 2;
 
+	// type_filter is the type filter for the path elements to be listed.
+	TypeFilter type_filter = 3;
+
 	// order_by is the ordering basis for the path elements to be listed.
-	OrderBy order_by = 3;
+	OrderBy order_by = 4;
 
 	// reverse indicates whether to reverse the path elements to be listed.
-	bool reverse = 4;
+	bool reverse = 5;
 
 	// offset is the number of the path elements to be listed that need to be
 	// offset.
 	//
 	// Notes:
 	//   * Range: [0, 9223372036854775807]
-	int64 offset = 5;
+	int64 offset = 6;
 
 	// limit is the maximum number of the path elements to be listed.
 	//
 	// Notes:
 	//   * Range: [1, 1000]
-	int64 limit = 6;
+	int64 limit = 7;
 }
 
 // ListPathElementsResponse is the response to list path elements.
