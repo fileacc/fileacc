@@ -44,6 +44,12 @@ message CountPathElementsRequest {
 
 // CountPathElementsResponse is the response to count path elements.
 message CountPathElementsResponse {
-	// count is the number of the path elements just counted.
-	int64 count = 1;
+	// number is the number of the path elements just counted.
+	int64 number = 1;
+
+	// size is the size of the path elements just counted.
+	//
+	// Notes:
+	//   * Unit: byte
+	int64 size = 2;
 }
