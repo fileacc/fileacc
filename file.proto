@@ -45,7 +45,7 @@ message File {
 	//
 	// Notes:
 	//   * Unit: byte
-	//   * Range: [1, 1099511627776]
+	//   * Range: [0, 1099511627776]
 	int64 size = 6;
 
 	// unuploaded_size is the size of the remaining data that needs to be

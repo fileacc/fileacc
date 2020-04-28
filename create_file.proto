@@ -36,7 +36,7 @@ message CreateFileRequest {
 	//
 	// Notes:
 	//   * Unit: byte
-	//   * Range: [1, 1099511627776]
+	//   * Range: [0, 1099511627776]
 	int64 size = 3;
 
 	// checksum is the checksum of the file to be created.
