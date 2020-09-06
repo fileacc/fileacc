@@ -28,8 +28,10 @@ message CreateFileRequest {
 	// Notes:
 	//   * Lowercase
 	//   * Length range: [1, 255]
-	//   * Nil means that it will be automatically detected when all data of the
-	//     file to be created is uploaded
+	//   * Nil means that it will be automatically detected as the data of the
+	//     file to be created is uploaded. "application/octet-stream" will be used
+	//     when the uploaded data of the file to be created is insufficient or the
+	//     automatic detection fails
 	google.protobuf.StringValue mime_type = 2;
 
 	// size is the size of the file to be created.

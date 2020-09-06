@@ -18,6 +18,7 @@ message PathElement {
 	// name is the name.
 	//
 	// Notes:
+	//   * Unique
 	//   * Absolute
 	//   * Clean
 	//   * Case-sensitive
