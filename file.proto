@@ -92,8 +92,8 @@ message File {
 	//     zero, the backend will verify all uploaded data (compare with the
 	//     `checksum`). An unpassed verification will cause the file to be deleted
 	//     immediately
-	//   * Up to 4294967296 (4 GB) of bytes per PATCH request
-	//   * Expires in a certain time (3600 seconds by default) when the
-	//     `unuploaded_size` is greater than zero or the `public` is false
+	//   * At least 1 byte per PATCH request
+	//   * Expires in a certain time when the `unuploaded_size` is greater than
+	//     zero or the `public` is false
 	string url = 11;
 }
