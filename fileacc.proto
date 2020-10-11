@@ -54,5 +54,5 @@ service Fileacc {
 	//
 	// Notes:
 	//   * Only files with all data uploaded will be counted
-	rpc CountPathElements(CountPathElementsRequest) returns (stream CountPathElementsResponse);
+	rpc CountPathElements(CountPathElementsRequest) returns (CountPathElementsResponse);
 }
