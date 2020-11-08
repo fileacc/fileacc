@@ -45,7 +45,7 @@ message File {
 	//
 	// Notes:
 	//   * Unit: byte
-	//   * Range: [0, 1099511627776]
+	//   * Range: [0, ∞)
 	int64 size = 6;
 
 	// unuploaded_size is the size of the remaining data that needs to be
@@ -53,7 +53,7 @@ message File {
 	//
 	// Notes:
 	//   * Unit: byte
-	//   * Range: [0, 1099511627776]
+	//   * Range: [0, ∞)
 	//   * It decreases as the data is uploaded until it is equal to zero
 	//   * It is equal to zero when all data has been uploaded
 	//   * It may already be equal to zero, even if the file was just created
@@ -70,7 +70,7 @@ message File {
 	//
 	// Notes:
 	//   * Unit: second
-	//   * Range: [1, 9223372036854775807]
+	//   * Range: [1, ∞)
 	int64 lifetime = 9;
 
 	// public indicates whether the file is public.
@@ -86,13 +86,13 @@ message File {
 	//   * Must use "application/octet-stream" as the value of the Content-Type
 	//     header for each PATCH request
 	//   * A PATCH request is used to continue uploading (appending) data
+	//   * At least 1 byte per PATCH request
 	//   * Always use the `unuploaded_size` to determine the upload offset before
 	//     starting a PATCH request, even it is the very first one
 	//   * Once a PATCH request decreases the `unuploaded_size` to be equal to
 	//     zero, the backend will verify all uploaded data (compare with the
 	//     `checksum`). An unpassed verification will cause the file to be deleted
 	//     immediately
-	//   * At least 1 byte per PATCH request
 	//   * Expires in a certain time when the `unuploaded_size` is greater than
 	//     zero or the `public` is false
 	string url = 11;

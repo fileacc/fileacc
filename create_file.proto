@@ -38,7 +38,7 @@ message CreateFileRequest {
 	//
 	// Notes:
 	//   * Unit: byte
-	//   * Range: [0, 1099511627776]
+	//   * Range: [0, ∞)
 	int64 size = 3;
 
 	// checksum is the checksum of the file to be created.
@@ -52,7 +52,7 @@ message CreateFileRequest {
 	//
 	// Notes:
 	//   * Unit: second
-	//   * Range: [1, 9223372036854775807]
+	//   * Range: [1, ∞)
 	int64 lifetime = 5;
 
 	// public indicates whether the file to be created is public.

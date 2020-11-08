@@ -67,7 +67,7 @@ message ListPathElementsRequest {
 	// offset.
 	//
 	// Notes:
-	//   * Range: [0, 9223372036854775807]
+	//   * Range: [0, ∞)
 	int64 offset = 6;
 
 	// limit is the maximum number of the path elements to be listed.
